@@ -1,0 +1,17 @@
+.custom-modal .ant-modal-content {
+    border-radius: 0px 0px 30px 30px !important; /* ให้มุมล่างของ Modal โค้ง */
+  }
+  
+  .custom-modal .ant-modal {
+    border-radius: 0px 0px 30px 30px !important; /* ให้มุมล่างของ Modal โค้ง */
+  }
+  
+  .custom-modal .ant-modal-body {
+    border-radius: 0px 0px 30px 30px !important; /* เพิ่มความโค้งในส่วนเนื้อหา Modal */
+  }
+  
+  .custom-modal .qrcode-container {
+    border-radius: 15px !important; /* เพิ่มความโค้งให้กับ QR Code */
+    overflow: hidden; /* ป้องกันไม่ให้เนื้อหาเกินจากมุมโค้ง */
+  }
+  

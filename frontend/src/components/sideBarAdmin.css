@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box; /* ทำให้ padding และ border ไม่เพิ่มขนาดของ element */
+}
+
+/******************************************/
+
+.sidebar {
+  z-index: 1; /* แน่ใจว่าอยู่เหนือองค์ประกอบอื่น ๆ */
+  position: fixed; /* ฟิกตำแหน่งจากขอบบน ซ้าย ล่าง */
+  top: 10px;
+  left: -245px; /* เริ่มต้นให้ sidebar ซ่อนทางซ้าย */
+  bottom: 10px;
+  width: 300px;  /* ความกว้างตั้งต้นของ sidebar */
+
+  border-radius: 0px 30px 30px 0px; /* มุมบนซ้าย, มุมบนขวา, มุมล่างขวา, มุมล่างซ้าย */
+  background: #312a13; /* สีพื้นหลังของ sidebar */
+  transition: left 0.3s ease; /* ทรานซิชั่นเมื่อ sidebar ขยับ */
+  padding: 10px; /* ระยะห่างภายใน sidebar */
+
+  overflow: hidden; /* ป้องกันการล้นของเนื้อหา */
+}
+
+.sidebar:hover {
+  left: 0px; /* ขยับจากซ้ายเข้ามาเมื่อ hover */
+}
+
+.bttSideBar {
+  background-color: #ebebeb; /* สีพื้นหลังของปุ่ม */
+  color: #000000;  /* สีตัวอักษร */
+  padding: 10px 20px; /* เพิ่ม padding ให้ดูมีพื้นที่ */
+  border-radius: 8px; /* มุมโค้งมน */
+  margin: 10px 2px; /* เพิ่มระยะห่างระหว่างปุ่มกับองค์ประกอบอื่นๆ */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+  height: 60px; /* ความสูงของปุ่ม */
+
+  display: flex; /* ใช้ Flexbox สำหรับการจัดวางไอคอนและข้อความ */
+  align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+}
+
+.bttSideBar:hover {
+  background-color: #F7B22C; /* เปลี่ยนสีเมื่อ hover */
+}
+.bttSideBar b{
+  font-family: 'Kanit';
+}
+
+.bttSideBarLogout {
+  background-color: #F7B22C; /* สีพื้นหลังของปุ่ม logout */
+  color: #000000;  /* สีตัวอักษร */
+  border-radius: 8px; /* มุมโค้งมน */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+  height: 40px; /* ความสูงของปุ่ม logout */
+
+  display: flex; /* ใช้ Flexbox สำหรับการจัดวางข้อความ */
+  justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+  align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+
+  position: absolute; /* ฟิกตำแหน่งที่ด้านล่างของ sidebar */
+  bottom: 20px; /* ห่างจากด้านล่างของ sidebar 10px */
+  left: 0;
+  right: 0;
+  margin-left: 15px; /* ระยะห่างจากขอบซ้าย */
+  margin-right: 15px; /* ระยะห่างจากขอบขวา */
+}
+.bttSideBarLogout h3{
+  font-family: "Gill Sans", sans-serif;
+}
+
+.bttSideBarLogout:hover{
+  background-color: #9c6f16;
+}
+
+.picicon {
+  width: 45px; /* ความกว้างของไอคอน */
+  height: 45px; /* ความสูงของไอคอน */
+  margin-right: 10px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+}
+
+.picsirisakHandfront {
+  margin-top: 15px;
+  width: 300px;
+  height: 80px;
+  overflow: hidden; /* ป้องกันการล้นของรูปภาพ */
+}
+
+.picsirisakHandfront img {
+  width: 100%; /* ทำให้รูปภาพขยายเต็มความกว้างของกล่อง */
+  height: 100%; /* ทำให้รูปภาพขยายเต็มความสูงของกล่อง */
+  object-fit: cover; /* ปรับขนาดรูปภาพให้พอดีภายในกล่องโดยไม่เสียสัดส่วน */
+  margin-left: -15px;
+}
+
+.Menu-Admin{
+  margin-left: 10px;
+  color: rgb(255, 255, 255);
+  font-family: "Gill Sans", sans-serif;
+  font-size: 17px;
+}

@@ -1,0 +1,88 @@
+/* Drop zone styles */
+.drop-zone {
+    width: 300px;
+    height: 340px;
+    border: 2px dashed #cccccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-top: 0px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .drop-zone.drag-over {
+    background-color: #e6f7ff;
+  }
+  
+  .button {
+    margin-bottom: 20px;
+    margin-left: 218px;
+    margin-top: 40px;
+  }
+  
+  .upload-button {
+    width: 140px;
+    height: 50px;
+    color: white;
+    background-color: #0b6477;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+    font-size: 19px;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background-color: #0d8a9d;
+    box-shadow: 0px 0px 10px 2px rgba(13, 138, 157, 0.7);
+  }
+  
+  .selected-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Modal styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .confirm-button,
+  .cancel-button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm-button {
+    background-color: #0b6477;
+    color: white;
+  }
+  
+  .cancel-button {
+    background-color: #cccccc;
+  }
+  

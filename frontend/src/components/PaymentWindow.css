@@ -1,0 +1,41 @@
+.payment-window {
+  width: 810px;
+  height: 500px;
+  margin-top: 155px;
+  background-color: #ffffff;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  display: flex;
+  flex-direction: column;
+  left: 0; /* Align to the left edge */
+  top: 0; /* Adjust as needed */
+  margin-left: 350px;
+}
+
+.payment-head {
+  width: 100%;
+  height: 60px;
+  background-color: #45dfb1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+.payment-upload{
+  margin-top:-270px ;
+  margin-left: 350px;
+  width: 420px;
+  height: 290px;
+
+
+}
+
+.payment-qr {
+  margin-top: 40px;
+  margin-left:40px;
+  width: 270px;
+  height: 270px;
+  background-color: rgb(255, 255, 255);
+}
+

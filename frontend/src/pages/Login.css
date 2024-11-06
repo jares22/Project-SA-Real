@@ -1,0 +1,80 @@
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  margin: 0 auto;
+  background: #3c312b;
+}
+
+.rectangle {
+  position: absolute;
+  width: 628px;
+  top: 0; /* ขอบบนชิดหน้าจอ */
+  bottom: 0; /* ขอบล่างสุด */
+  left: 1400px; /* ขยับไปทางขวา */
+  background: #f7b22c;
+  z-index: 5;
+  border-radius: 100px 0px 0px 100px; /* ขอบล่างโค้ง */
+}
+
+.sirisak {
+  position: absolute;
+  width: 910px;
+  height: 257px;
+  top: 112px;
+  left: 1062px;
+  background: url(../assets/images/handFontSirisak.png) no-repeat center;
+  background-size: cover;
+  z-index: 7;
+}
+
+.welcome-to-sirisak-tour {
+  position: absolute;
+  width: 1613px;
+  top: 50px;
+  left: -171px;
+  font-family: Inter, var(--default-font-family);
+  font-size: 96px;
+  font-weight: 900;
+  text-align: center;
+  z-index: 6;
+}
+
+.welcome-to {
+  color: #ffffff;
+  font-size: 80px;
+}
+
+.sirisak-1 {
+  color: #f7b22c;
+  font-size: 96px;
+}
+
+.tour {
+  color: #ffffff;
+  font-size: 96px;
+}
+
+.a-a {
+  position: absolute;
+  width: 753px;
+  height: 753px;
+  top: 213px;
+  left: 1167px;
+  background: url(../assets/images/busiconLogin.png) no-repeat center;
+  background-size: cover;
+  z-index: 8;
+  transition: transform 0.3s ease; /* เพิ่ม transition สำหรับ animation */
+}
+
+.animate-out {
+  transform: translateX(-100vw); /* ขยับออกจากจอ */
+}

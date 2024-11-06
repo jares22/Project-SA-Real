@@ -1,0 +1,134 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDropzone, Accept } from 'react-dropzone';
+
+export let img: File[];
+export let Url: string[];
+export let Base64: string[];
+
+function Uploads() {
+  const [images, setImages] = useState<File[]>([]);
+  const [imageURLs, setImageURLs] = useState<string[]>([]);
+  const [base64Images, setBase64Images] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (images.length < 1) return;
+
+    const newImageUrls: string[] = [];
+    const newBase64Images: string[] = [];
+
+    images.forEach((image) => {
+      const imageUrl = URL.createObjectURL(image);
+      newImageUrls.push(imageUrl);
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target && typeof event.target.result === 'string') {
+          newBase64Images.push(event.target.result);
+        }
+      };
+      reader.readAsDataURL(image);
+    });
+
+    setImageURLs(newImageUrls);
+    setBase64Images(newBase64Images);
+  }, [images]);
+
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    // ตรวจสอบว่าไม่มีไฟล์ภาพอยู่ก่อนแล้ว
+    if (images.length === 0) {
+      setImages(acceptedFiles.slice(0, 1)); // รับเฉพาะไฟล์แรกที่ถูกอัปโหลด
+    }
+  }, [images]);
+
+  const handleRemoveImage = () => {
+    setImages([]);
+    setImageURLs([]);
+    setBase64Images([]);
+  };
+
+  // ใช้ accept แบบ object ตามที่ `react-dropzone` คาดหวัง
+  const accept: Accept = {
+    'image/*': ['.jpeg', '.jpg', '.png', '.gif']
+  };
+
+  // ใช้ useDropzone โดยทำให้ Dropzone ไม่ทำงานถ้ามีไฟล์ภาพอยู่แล้ว
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept,
+    multiple: false, // ไม่อนุญาตให้เลือกหลายไฟล์
+    noClick: images.length > 0, // ไม่ให้คลิกเพื่อเลือกไฟล์ถ้ามีไฟล์อยู่แล้ว
+    noKeyboard: images.length > 0, // ไม่ให้ใช้คีย์บอร์ดเพื่อเลือกไฟล์ถ้ามีไฟล์อยู่แล้ว
+  });
+
+  // Export arrays for other components to access
+  img = images;
+  Url = imageURLs;
+  Base64 = base64Images;
+
+  return (
+    <div {...getRootProps()} style={{
+      margin: '0px auto',
+      width: 420,
+      minHeight: 290,
+      border: '2px dashed #C2C2C2',
+      borderRadius: 30,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: images.length === 0 ? 'pointer' : 'not-allowed',
+      backgroundColor: isDragActive ? '#f0f0f0' : 'white',
+      flexDirection: 'column',
+    }}>
+      <input {...getInputProps()} />
+      {images.length === 0 ? (
+        isDragActive ? (
+          <p>ปล่อยไฟล์ที่นี่...</p>
+        ) : (
+          <p>ลากและวางรูปภาพที่นี่ หรือคลิกเพื่อเลือกไฟล์</p>
+        )
+      ) : (
+        <p>รูปภาพถูกอัปโหลดแล้ว</p>
+      )}
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
+        {imageURLs.map((imageSrc, idx) => (
+          <div key={idx} style={{ position: 'relative' }}>
+            <img
+              src={imageSrc}
+              alt={`Uploaded ${idx}`}
+              style={{
+                width: '150px',
+                height: '150px',
+                objectFit: 'cover',
+                border: '1px solid #ddd',
+                borderRadius: 4,
+              }}
+            />
+            <button
+              onClick={handleRemoveImage}
+              style={{
+                position: 'absolute',
+                top: 5,
+                right: 5,
+                backgroundColor: 'red',
+                color: 'white',
+                border: 'none',
+                borderRadius: '50%',
+                width: 20,
+                height: 20,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              &times;
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Uploads;

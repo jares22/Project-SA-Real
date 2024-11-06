@@ -1,0 +1,30 @@
+.Detail {
+  width: 350px;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius:0 0 30px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin-left: 1200px;
+  margin-top: -500px;
+}
+
+.detail-head {
+  width: 100%;
+  height: 60px;
+  background-color: #45dfb1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detail-content {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+}
+
+

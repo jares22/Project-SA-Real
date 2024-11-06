@@ -1,0 +1,8 @@
+/* Payment.css หรือไฟล์ CSS หลัก */
+body {
+    background-color: green; /* กำหนดสีพื้นหลังเป็นสีเขียวสำหรับทั้งหน้า */
+    margin: 0; /* ลบ margin ของ body */
+    padding: 0; /* ลบ padding ของ body */
+    min-height: 100vh; /* ความสูงขั้นต่ำให้เต็มหน้าจอ */
+  }
+  

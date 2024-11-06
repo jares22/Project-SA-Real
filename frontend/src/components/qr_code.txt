@@ -1,0 +1,43 @@
+import React, { useState, useEffect } from 'react';
+import { QRCode } from 'antd';
+import { Typography } from 'antd';
+import generatePayload from 'promptpay-qr';
+
+// สไตล์ที่ใช้ Styled Components
+const { Title, Text } = Typography;
+
+const QrCode: React.FC = () => {
+  const [phoneNumber] = useState<string>('0649678830');
+  const [amount] = useState<number>(1.50);
+  const [qrCode, setQrCode] = useState<string>('');
+
+  const handleQR = () => {
+    setQrCode(generatePayload(phoneNumber, { amount }));
+  };
+
+  // Use useEffect to generate the QR code on component mount
+  useEffect(() => {
+    handleQR();
+  }, [phoneNumber, amount]); // Automatically update when phoneNumber or amount changes
+
+  return (
+    <div style={{marginTop:"10px",}}>
+    
+      <QRCode
+        errorLevel="H"
+        value={qrCode}
+        icon="./public/icon/LogoBus.png" style={{width:"250px",height:"250px",}}
+      />
+      <div style={{ marginTop: '16px' }}>
+        <Text strong>เบอร์ที่โอน: </Text>
+        <Text>{phoneNumber}</Text>
+      </div>
+      <div style={{ marginTop: '8px' }}>
+        <Text strong>ราคาที่ต้องจ่าย: </Text>
+        <Text>{amount.toFixed(2)} บาท</Text>
+      </div>
+    </div>
+  );
+};
+
+export default QrCode;

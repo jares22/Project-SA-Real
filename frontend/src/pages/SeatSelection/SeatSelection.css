@@ -1,0 +1,29 @@
+/* SeatSelection.css */
+.seat {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.seat.selected {
+  background-color: #87d068; 
+}
+
+.seat.occupied {
+  background-color: red; /* Red for occupied seats */
+}
+
+.seat-avatar {
+  color: #fff;
+}
+
+.spacer {
+  width: 20px; /* Adjust the gap between the two sections */
+}
